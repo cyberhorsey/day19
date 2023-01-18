@@ -1,11 +1,12 @@
 const MAX_DESCRIPTION_LENGTH = 30;
 
 function truncateDescription(description: string): string {
-    if (description.length > MAX_DESCRIPTION_LENGTH) {
-        return description.slice(0, MAX_DESCRIPTION_LENGTH) +"...";
-    }
+  if (!description) return "";
+  if (description.length > MAX_DESCRIPTION_LENGTH) {
+    return description.slice(0, MAX_DESCRIPTION_LENGTH) + "...";
+  }
 
-    return description
+  return description;
 }
 
-export default truncateDescription
+export default truncateDescription;
