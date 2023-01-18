@@ -2,12 +2,15 @@ import { all } from "axios";
 import type { NFT} from "../domain/nft";
 import fetchImxNfts from "./fectchImxNfts";
 import fetchEthereumNfts from "./fetchEthereumNfts";
+import fetchSolanaNfts from "./fetchSolanaNfts";
 
-async function fetchNFTsByAddress(ethereumAddress: string, solanaAddress: string): Promise<NFT[]> {
+async function fetchNFTsByAddress(ethereumAddress: string): Promise<NFT[]> {
+    
     const imxNfts: NFT[] = await fetchImxNfts(ethereumAddress);
     const ethereumNfts: NFT[] = await fetchEthereumNfts(ethereumAddress);
-//    const solanaNfts: NFT[] = await fetchSolanaNfts(solanaAddress)
-    return imxNfts.concat(ethereumNfts);
+    const solNFTs: NFT[] = await fetchSolanaNfts("6yqm5QUft621gmuVFht6USz1CbkZUwprUpa45HnvrG1m");
+    // console.log("concat:",imxNfts.concat(ethereumNfts).concat(solNFTs))
+    return imxNfts.concat(ethereumNfts).concat(solNFTs);
     
 }
 

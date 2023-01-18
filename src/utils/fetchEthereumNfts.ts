@@ -28,6 +28,7 @@ async function fetchEthereumNfts(address: string): Promise<NFT[]> {
 
         domainNfts.push(nft);
     })
+    console.log("ethereum nft:   ",domainNfts)
     return domainNfts;
 }
 

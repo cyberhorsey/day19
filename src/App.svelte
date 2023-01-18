@@ -8,12 +8,12 @@
   import Header from "./components/Header.svelte";
   import NfTview from "./components/NFTview.svelte";
   import nfts from "./store/nfts";
-  import {ethereumAccount} from "./store/account";
+  import {ethereumAccount, solanaAccount} from "./store/account";
 </script>
 
 <Header/>
 
-{#if $ethereumAccount}
+{#if $ethereumAccount || $solanaAccount}
   <NfTview />
 {:else}
   Connect a Wallet

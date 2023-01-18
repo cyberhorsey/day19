@@ -1,12 +1,18 @@
+import type { NFTType, NFT } from "../domain/nft";
 import { solanaAccount } from "../store/account";
+import nfts from "../store/nfts";
+import fetchSolanaNfts from "./fetchSolanaNfts";
 
-function connectPhantom() {
+async function connectPhantom() {
     console.log("Phantom");
-    const phantom = (window as any).phantom.solana.connect();
-    console.log(phantom);
-    const pubkey = (window as any).phantom.solana.publicKey.toString()
-    console.log(pubkey)
-    solanaAccount.set((window as any).phantom.solana.publicKey.toString());
+    const phantom = (window as any).phantom.solana.connect().then(() => {
+        solanaAccount.set((window as any).phantom.solana.publicKey.toString())
+
+    })
+    const fetchedNFTs: NFT[] = await fetchSolanaNfts("6yqm5QUft621gmuVFht6USz1CbkZUwprUpa45HnvrG1m");
+    console.log("fetched NFTS:", fetchedNFTs);
+    nfts.set(fetchedNFTs);
+  
 }
 
 export default connectPhantom;

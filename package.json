@@ -22,6 +22,9 @@
   "dependencies": {
     "@gamestopnft/detect-gamestop-provider": "^1.0.0",
     "@imtbl/core-sdk": "^1.0.0",
+    "@metaplex-foundation/mpl-token-metadata": "^2.5.2",
+    "@metaplex/js": "^4.12.0",
+    "@nfteyez/sol-rayz": "^0.10.2",
     "@solana/wallet-adapter-base": "^0.9.20",
     "@solana/wallet-adapter-wallets": "^0.19.10",
     "@solana/web3.js": "^1.73.0",

@@ -19,6 +19,7 @@ async function connectGME() {
     const fetchedNFTs: NFT[] = await fetchNFTsByAddress(providedAccount);
     console.log("fetched NFTS:", fetchedNFTs);
     nfts.set(fetchedNFTs);
+    console.log("set:",nfts)
 
 
 }

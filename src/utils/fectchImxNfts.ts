@@ -19,10 +19,11 @@ async function fetchImxNfts(address: string): Promise<NFT[]> {
             imageURL: IMXnfts.image_url,
             nftType: NFTType.IMX
         }
+        console.log("imx nft being pushed",nft)
         domainNfts.push(nft);
 
     })
-
+    console.log("imx nft:   ",domainNfts)
     return domainNfts;
 }
 
